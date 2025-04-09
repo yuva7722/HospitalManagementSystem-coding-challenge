@@ -1,0 +1,23 @@
+                       Hospital management 
+                    
+                            SQL tables
+1.create table Patient(patientId int primary key, firstName varchar(100),
+   lastName varchar(100),dateOfBirth date, gender varchar(20),contactNumber varchar(20),address varchar(300));
+
+    //insert into Patient(patientId, firstName, lastName, dateOfBirth, gender, contactNumber, address)values 
+(1, 'Aasha', 'Shankar', '2003-11-15', 'Female', '9876000010', 'Chennai'),
+(2, 'Banu', 'Prakash', '2001-12-23', 'Female', '9123459089', 'Delhi');
+
+
+2.create table Doctor(doctorId int primary key, firstName varchar(100),lastName varchar(100),specialization varchar(100),contactNumber varchar(20));
+
+       //insert into Doctor(doctorId, firstName, lastName, specialization, contactNumber)values 
+(1, 'Riya', 'Varma', 'Cardiology', '9991234567'),
+(2, 'Mithali', 'Sharma', 'Neurology', '9091234432');
+
+
+3.create table Appointment(appointmentId int primary key, patientId int, doctorId int, appointmentDate date, description varchar(500),constraint patientIdfk foreign key(patientId) references Patient(patientId) on delete set null, constraint doctorIdfk foreign key(doctorId) references Doctor(doctorId) on delete set null);
+
+          //insert into Appointment(appointmentId, patientId, doctorId, appointmentDate, description)values 
+(1, 1, 1, '2025-04-09', 'Regular Visit'),
+(2, 2, 2, '2025-04-14', 'Diet Consultation visit');
